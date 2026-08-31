@@ -1,0 +1,86 @@
+
+.container {
+    display: grid; /* Menggunakan grid layout untuk container */
+    justify-content: center; /* Menyusun konten secara horizontal di tengah */
+    align-items: center; /* Menyusun konten secara vertikal di tengah */
+    height: 100%; /* Mengatur tinggi container menjadi 100% dari tinggi viewport */
+    font-family: Arial, sans-serif; /* Menetapkan font untuk teks */
+    padding: 10px; /* Memberikan padding di sekitar konten */
+    background-color: #1e1e1e; /* Latar belakang berwarna gelap */
+    margin: 0; /* Menghapus margin default */
+}
+
+/* Gaya untuk container kartu */
+.card-container {
+    display: flex; /* Menggunakan flexbox untuk menyusun kartu secara horizontal */
+    gap: 20px; /* Memberikan jarak antara kartu */
+    flex-wrap: wrap; /* Memungkinkan kartu untuk membungkus ke baris baru jika diperlukan */
+    justify-content: center; /* Menyusun kartu di tengah secara horizontal */
+    max-width: 100%; /* Memastikan container kartu tidak lebih lebar dari 100% */
+    padding: 50px; /* Memberikan padding sekitar container kartu */
+}
+
+/* Gaya untuk masing-masing kartu */
+.card {
+    position: relative; /* Posisi relatif untuk kartu */
+    width: 200px; /* Lebar kartu */
+    height: 250px; /* Tinggi kartu */
+    border-radius: 10px; /* Memberikan sudut melengkung pada kartu */
+    overflow: hidden; /* Menyembunyikan bagian kartu yang keluar dari batasnya */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut di sekitar kartu */
+    transition: transform 0.3s; /* Efek transisi pada perubahan ukuran kartu */
+    cursor: pointer; /* Menampilkan pointer saat kursor berada di atas kartu */
+}
+
+/* Efek saat hover pada kartu */
+.card:hover {
+    transform: scale(1.05); /* Memperbesar kartu sedikit saat hover */
+}
+
+/* Gaya untuk gambar di dalam kartu */
+.card img {
+    width: 100%; /* Lebar gambar 100% dari lebar kartu */
+    height: 100%; /* Tinggi gambar 100% dari tinggi kartu */
+    object-fit: cover; /* Menyesuaikan gambar agar tetap memenuhi ruang tanpa distorsi */
+}
+
+/* Gaya untuk bagian informasi dalam kartu */
+.card-info {
+    position: absolute; /* Posisi absolut agar dapat ditempatkan di bawah gambar */
+    bottom: 0; /* Menempatkan informasi di bagian bawah kartu */
+    left: 0; /* Menempelkan informasi ke kiri */
+    right: 0; /* Menempelkan informasi ke kanan */
+    background-color: #ffffff; /* Latar belakang putih untuk informasi */
+    padding: 15px; /* Padding di dalam area informasi */
+    text-align: center; /* Menyusun teks di tengah */
+    font-size: 14px; /* Ukuran font untuk teks informasi */
+    color: #333; /* Warna teks abu-abu gelap */
+    overflow: hidden; /* Menyembunyikan bagian informasi yang lebih dari batas */
+    box-sizing: border-box; /* Memastikan padding dihitung dalam ukuran total elemen */
+    transition: max-height 0.5s ease, padding 0.3s ease; /* Efek transisi pada perubahan tinggi maksimal dan padding */
+    max-height: 80px; /* Tinggi maksimal informasi saat kartu tidak di-hover */
+}
+
+/* Gaya untuk judul informasi dalam kartu */
+.card-info h3 {
+    margin: 0; /* Menghapus margin default pada judul */
+    font-size: 16px; /* Ukuran font untuk judul */
+}
+
+/* Gaya untuk paragraf informasi dalam kartu */
+.card-info p {
+    margin: 10px 0 0; /* Memberikan margin atas untuk paragraf */
+    opacity: 0; /* Menyembunyikan paragraf secara default */
+    transition: opacity 0.3s ease; /* Efek transisi pada perubahan opacity */
+}
+
+/* Efek saat hover pada kartu: memperluas bagian informasi */
+.card:hover .card-info {
+    max-height: 150px; /* Mengubah tinggi maksimal informasi saat hover */
+    padding: 15px 15px 30px; /* Menambah padding bawah untuk ruang lebih banyak */
+}
+
+/* Efek saat hover pada kartu: membuat paragraf muncul */
+.card:hover .card-info p {
+    opacity: 1; /* Menampilkan paragraf dengan mengubah opacity menjadi 1 */
+}

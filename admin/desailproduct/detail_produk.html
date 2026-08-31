@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="product-detail" style="display: none;">
+        <button onclick="backToList()">Kembali</button>
+        <h2 id="product-name"></h2>
+        <img id="product-image" src="" alt="Product Image">
+        <p id="product-price"></p>
+        <p id="product-description"></p>
+        <ul id="product-details">
+            <!-- Detail spesifik seperti warna, stok, kategori -->
+        </ul>
+    </div>
+    
+</body>
+<script>
+    function showProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-image').src = product.images[0];
+        document.getElementById('product-price').textContent = product.price;
+        document.getElementById('product-description').textContent = product.details.description;
+
+        const detailsList = document.getElementById('product-details');
+        detailsList.innerHTML = `
+            <li>Category: ${product.details.category}</li>
+            <li>Color: ${product.details.color}</li>
+            <li>Stock: ${product.details.stock}</li>
+        `;
+
+        document.getElementById('product-list').style.display = 'none';
+        document.getElementById('product-detail').style.display = 'block';
+    }
+}
+function backToList() {
+    document.getElementById('product-detail').style.display = 'none';
+    document.getElementById('product-list').style.display = 'block';
+}
+
+</script>
+</html>

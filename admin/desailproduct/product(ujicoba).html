@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="product-list">
+    <!-- Tempat produk ditampilkan secara dinamis -->
+</div>
+
+</body>
+<script>
+  const products = [
+    {
+        id: 1,
+        name: "Nike Shoes",
+        price: "$249.00",
+        details: {
+            category: "Shoes",
+            color: "Black",
+            stock: "In stock",
+            description: "High-quality running shoes.",
+        },
+        images: [
+            "../assets/img_produk/133.png",
+            "shoe_2.jpg",
+            "shoe_3.jpg",   
+        ],
+    },
+    {
+        id: 2,
+        name: "Adidas Sneakers",
+        price: "$199.00",
+        details: {
+            category: "Sneakers",
+            color: "White",
+            stock: "Limited stock",
+            description: "Comfortable casual sneakers.",
+        },
+        images: [
+            "sneaker_1.jpg",
+            "../assets/img_produk/144.png",
+        ],
+    },
+];
+function renderProducts(productList) {
+    const productListDiv = document.querySelector('#product-list');
+    productListDiv.innerHTML = '';
+    productList.forEach(product => {
+        const productItem = document.createElement('div');
+        productItem.innerHTML = `
+            <h2>${product.name}</h2>
+            <p>${product.price}</p>
+            <button onclick="showProduct(${product.id})">Detail</button>
+        `;
+        productListDiv.appendChild(productItem);
+    });
+}
+
+renderProducts(products); // Tampilkan semua produk
+
+</script>
+</html>
